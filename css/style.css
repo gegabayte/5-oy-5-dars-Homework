@@ -37,7 +37,7 @@ textarea {
 
 .card {
   border: 1px solid black;
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   margin-bottom: 20px;
   padding: 20px;
