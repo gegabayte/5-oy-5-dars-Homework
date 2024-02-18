@@ -10,6 +10,7 @@ const form = document.getElementById('form');
 const button = document.querySelector('#button');
 const wrapper = document.getElementById('wrapper');
 const Delite = document.getElementById('Delite');
+const Remove = document.querySelector('#Remove__btn');
 
 function validate(name, age, email, nat, desc, password, surName, phoneNumber) {
     if (!name.value) {
@@ -89,7 +90,7 @@ function validate(name, age, email, nat, desc, password, surName, phoneNumber) {
         age.style.outlineColor = 'black'
     }
 
-    
+
     if (!email.value) {
         alert('email kiritish shart');
         email.focus();
@@ -113,39 +114,54 @@ function validate(name, age, email, nat, desc, password, surName, phoneNumber) {
         email.style.outlineColor = 'red';
         return false
     } else {
-        email   .style.outlineColor = 'black'
+        email.style.outlineColor = 'black'
     };
 
 
-    if (!phoneNumber.value) {
-        alert('phoneNumer kiritish shart');
+    if (phoneNumber.value.trim().length != 12) {
+        alert("belgilar soni notogri");
         phoneNumber.focus();
-        phoneNumber.style.outlineColor = 'red';
+        phoneNumber.style.outlineColor = "red";
         return false;
-    } else {
-        phoneNumber.style.outlineColor = 'black'
-    };
-
-    if (phoneNumber.value.substring(0, 3) != '998' ) {
-        alert('phoneNumber (+998) dan boshlanishi shart');
+      } else {
+        phoneNumber.style.outlineColor = "black";
+      }
+    
+      if (phoneNumber.value.substring(0, 3) != "998") {
+        alert("Telefon raqam formati notogri");
         phoneNumber.focus();
-        phoneNumber.style.outlineColor = 'red';
+        phoneNumber.style.outlineColor = "red";
+        return false;
+      } else {
+        phoneNumber.style.outlineColor = "black";
+      }
+    
+      if (!Number(phoneNumber.value.substring(1))) {
+        alert("Telefon raqam notogri kiritildi");
+        phoneNumber.focus();
+        phoneNumber.style.outlineColor = "red";
+        return false;
+      } else {
+        phoneNumber.style.outlineColor = "black";
+      }
+
+    if (password.value.length != 8) {
+        alert('password 8 ta belgidan tashkil topgan bolishi kerak');
+        password.focus();
+        password.style.outlineColor = 'red';
         return false
     } else {
-        phoneNumber.style.outlineColor = 'black'
+        password.style.outlineColor = 'black'
     };
 
-
-
-
-   if (!password.value) {
+    if (!password.value) {
         alert('Password kiritish shart');
         password.focus();
         password.style.outlineColor = 'red';
         return false;
     } else {
         password.style.outlineColor = 'black'
-    }; 
+    };
 
     return true;
 }
@@ -171,7 +187,7 @@ button && button.addEventListener('click', function (e) {
             email: email.value,
             nat: nat.value,
             desc: desc.value,
-            password: password.value,   
+            password: password.value,
         }
 
 
@@ -191,6 +207,7 @@ button && button.addEventListener('click', function (e) {
     }
 })
 
+Delite.style.display = 'none'
 function createCard(user) {
     return `
     <div class="card">
@@ -202,7 +219,6 @@ function createCard(user) {
             <h3>${user.nat}</h3>
             <h3>${user.desc}</h3>
             <h3>${user.password}</h3>
-            <button id="Delite">Delite</button>
         </div>
     `;
 }
@@ -216,8 +232,14 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-Delite && Delite.addEventListener('click', function() {
-localStorage.clear();
+Remove && Remove.addEventListener('click', function () {
+    localStorage.clear();
     wrapper.remove();
-    card.remove()
+    Delite.style.display = 'block';
+})
+
+
+Delite && Delite.addEventListener('click', function () {
+    localStorage.clear();
+    wrapper.remove()
 })

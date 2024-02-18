@@ -24,7 +24,8 @@
   margin-top: 10px;
 }
 #form input, #form select, #form textarea {
-  border: none;
+  border: 1px solid black;
+  border-radius: 15px;
 }
 
 .field {
@@ -35,12 +36,42 @@ textarea {
   resize: none;
 }
 
+.container {
+  border: 1px solid black;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
 .card {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+.wrapp {
   border: 1px solid black;
   max-width: 600px;
   margin: 0 auto;
   margin-bottom: 20px;
   padding: 20px;
+  border-radius: 15px;
+}
+.wrapp button {
+  width: 100%;
+  color: black;
+  border: none;
+  padding: 8px 25px;
+  background-color: yellow;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 #Delite {
