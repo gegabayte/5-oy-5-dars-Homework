@@ -207,7 +207,6 @@ button && button.addEventListener('click', function (e) {
     }
 })
 
-Delite.style.display = 'none'
 function createCard(user) {
     return `
     <div class="card">
