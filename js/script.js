@@ -219,7 +219,8 @@ function createCard(user) {
             <h3>${user.nat}</h3>
             <h3>${user.desc}</h3>
             <h3>${user.password}</h3>
-        </div>
+            <button id="Delite">Delite</button>
+    </div>
     `;
 }
 
@@ -229,17 +230,13 @@ document.addEventListener('DOMContentLoaded', function () {
         let card = createCard(user);
         wrapper.innerHTML += card;
     });
+    
 })
 
 
 Remove && Remove.addEventListener('click', function () {
     localStorage.clear();
     wrapper.remove();
-    Delite.style.display = 'block';
 })
 
 
-Delite && Delite.addEventListener('click', function () {
-    localStorage.clear();
-    wrapper.remove()
-})
